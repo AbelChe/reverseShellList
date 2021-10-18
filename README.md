@@ -5,6 +5,12 @@ curl https://raw.githubusercontent.com/AbelChe/reverseShellList/main/reverseShel
 python3 reverseShell.py 192.168.12.14:7761
 ```
 
+if report 'no moudle named prettytable' or 'no module named colorama', just install prettytable and
+ colorama.
+```sh
+pip install prettytable colorama
+```
+
 more options see '-h'
 ```
 ➜  python reverseShell.py -h                                                               (base) [22:40:16]
@@ -28,13 +34,13 @@ table mode display:
 ```
 ![](./show3.png)
 
-# Normal Mode
+## Normal Mode
 ```sh
 python reverseShell.py 127.0.0.1:1212
 ```
 ![](./show1.png)
 
-# Table Mode
+## Table Mode
 ```sh
 python reverseShell.py 127.0.0.1:1212 --table
 ```
@@ -47,7 +53,7 @@ python reverseShell.py 127.0.0.1:1212 --table --maxrow 200 --maxline 1
 ```
 ![](./show4.png)
 
-# No Color Mode
+## No Color Mode
 support Normal mode and Table mode.
 ```sh
 python reverseShell.py 127.0.0.1:1212 --table --nocolor --maxrow 40 --maxline 1
