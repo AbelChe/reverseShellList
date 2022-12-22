@@ -158,7 +158,7 @@ p.waitFor()'''.format(ip, port)
 
 
 def limitline(contents, maxrow, maxline):
-    lines = contents.splitlines()
+    lines = [contents.replace('\n', '⏎')]
     l = []
     for line in lines:
         if len(line) > maxrow:
